@@ -1,4 +1,4 @@
-# Player Runs Prediction
+# CricketInsight
 
 ## 📌 Project Overview
 This project predicts a cricket player's total runs based on their past performance using Machine Learning. A **Flask API** is deployed with a **modern web UI** to allow users to input player statistics and get instant predictions.
