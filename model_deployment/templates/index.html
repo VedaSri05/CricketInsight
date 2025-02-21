@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Runs Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Predict Player's Total Runs</h2>
+        <form id="prediction-form">
+            <div class="input-group">
+                <label>Total Matches:</label>
+                <input type="number" id="matches" required>
+            </div>
+            <div class="input-group">
+                <label>Innings:</label>
+                <input type="number" id="innings" required>
+            </div>
+            <div class="input-group">
+                <label>Average Score:</label>
+                <input type="number" step="0.01" id="average" required>
+            </div>
+            <div class="input-group">
+                <label>Strike Rate:</label>
+                <input type="number" step="0.01" id="strike" required>
+            </div>
+            <div class="input-group">
+                <label>Highest Score:</label>
+                <input type="number" id="highest" required>
+            </div>
+            <div class="input-group">
+                <label>Fours:</label>
+                <input type="number" id="fours" required>
+            </div>
+            <div class="input-group">
+                <label>Sixes:</label>
+                <input type="number" id="sixes" required>
+            </div>
+            <div class="input-group">
+                <label>Fifties:</label>
+                <input type="number" id="fifties" required>
+            </div>
+            <div class="input-group">
+                <label>Hundreds:</label>
+                <input type="number" id="hundreds" required>
+            </div>
+            <button type="button" onclick="predictRuns()">Predict</button>
+        </form>
+        <h3 id="result"></h3>
+    </div>
+    
+    <script>
+        function predictRuns() {
+            let data = {
+                total_matches: parseInt(document.getElementById('matches').value),
+                innings: parseInt(document.getElementById('innings').value),
+                average_score: parseFloat(document.getElementById('average').value),
+                strike_rate: parseFloat(document.getElementById('strike').value),
+                highest_score: parseInt(document.getElementById('highest').value),
+                fours: parseInt(document.getElementById('fours').value),
+                sixes: parseInt(document.getElementById('sixes').value),
+                fifties: parseInt(document.getElementById('fifties').value),
+                hundreds: parseInt(document.getElementById('hundreds').value)
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('result').innerText = "Predicted Runs: " + result.predicted_total_runs;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = "Error predicting runs.";
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+flask
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+selenium
+beautifulsoup4
+joblib
+requests
+powerbi
+sqlalchemy
+gunicorn
+flask-cors
