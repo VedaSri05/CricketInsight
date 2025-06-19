@@ -14,7 +14,6 @@ Player statistics were scraped from the official BCCI website:
 - **Visualization**: Matplotlib, Seaborn, Power BI
 - **Frontend**: HTML, CSS, JavaScript
 
----
 
 ## ⚙️ How to Run the Model Locally
 
