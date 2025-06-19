@@ -33,5 +33,7 @@ python app.py
 Then open your browser and navigate to:
 http://127.0.0.1:5000/
 
-📊 Visualization
+## 📊 Visualization
 Comprehensive insights into player performance trends are visualized using Power BI. These dashboards help interpret model predictions and underlying patterns effectively.
+![image](https://github.com/user-attachments/assets/efd7ccd6-c1f9-498b-bb2a-69fa9dd21b4d)
+
